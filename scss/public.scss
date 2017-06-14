@@ -1,0 +1,283 @@
+/**
+ * @author      ZEUS Design - http://www.zeusdesign.com.tw
+ * @copyright   Copyright (c) 2016 ZEUS Design
+ */
+
+@import "_oa";
+@include font-face("icomoon", font-files("icomoon/icomoon.eot", "icomoon/icomoon.woff", "icomoon/icomoon.ttf", "icomoon/icomoon.svg"));
+[class^="icon-"], [class*=" icon-"] {
+  font-family: 'icomoon', 'Roboto', "微軟正黑體", "Microsoft JhengHei";
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  @include font-smoothing(antialiased);
+}
+
+* {
+  &, &:after, &:before {
+    vertical-align: top;
+    @include box-sizing(border-box);
+    @include selection(rgba(150, 200, 255, 1), rgba(255, 255, 255, 1));
+    @include font-smoothing(antialiased);
+  }
+}
+
+
+.icon-phone:before {
+  content: "\e900";
+}
+.icon-envelope:before {
+  content: "\e901";
+}
+.icon-cart:before {
+  content: "\e902";
+}
+
+
+
+html {
+  height: 100%;
+
+  body {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    font-size: medium;
+    font-family: "Roboto", "微軟正黑體", "Microsoft JhengHei" ;
+    background-color: rgba(255, 255, 255, 1.00);
+    color: rgba(50, 50, 50, 0.8);
+
+    @include font-smoothing(antialiased);
+
+  }
+}
+
+$allwidth: 1170px;
+$c_yellow: rgba(232, 172, 16, 1.00);
+$c_greyblack: rgba(17, 17, 17, 1.00);
+$c_deepblack: rgba(0, 0, 0, 1.00); 
+
+
+#header_boxs {
+  display: inline-block;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  #top_boxs {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 0;
+    background-color: $c_yellow;    
+
+    #top_box {
+      display: inline-block;
+      width: 100%;
+      max-width: $allwidth;
+      margin: 0 auto;
+
+      @include split-right(150px, '.top_left', '.top_right');
+
+      .top_left, .top_right {
+        font-size: .9em;
+        color: $c_deepblack;
+        font-weight: 600;
+      }
+
+      .top_left {
+        @include clearfix();
+        
+        > div {
+          display: inline-block;
+          float: left;
+          padding-top: 3px;
+
+          &:before {
+            display: inline-block;
+            margin: 0 15px;
+          }
+
+          &:first-child {
+            &:before {
+              margin-left: 0;
+            }
+          }
+
+          a {
+            display: inline-block;
+            font-size: .9em;
+            color: $c_deepblack;
+            cursor: pointer;
+            text-decoration: none;
+            @include transition(color .3s);
+
+            &:hover, &:active {
+              color: rgba(19, 15, 4, .7);
+            }
+          }
+        }
+      }
+
+      .top_right {
+        @include clearfix();
+
+        .login {
+          display: inline-block;
+          width: 60%;
+          float: left;
+          padding-top: 3px;
+          border-right: 1px solid $c_greyblack;
+
+          a {
+            display: inline-block;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: .9em;
+            color: $c_deepblack;
+            font-weight: 600;
+            @include transition(all .3s);
+            
+            &:hover, &:active {
+              color: rgba(19, 15, 4, .7); 
+            }
+          }
+        }
+
+        .shop_car {
+          display: inline-block;
+          width: 30%;
+          float: right;
+          color: $c_deepblack;
+          position: relative;
+
+          &:before {
+            display: inline-block;
+            content: '\e902';
+            font-family: 'icomoon';
+            font-size: 1em;
+            padding: 5px 5px 0 0; 
+          }
+
+          .shop_number {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: inline-block;
+            font-size: .8em;
+            color: $c_deepblack;
+          }
+        }
+      }
+    }
+  }
+
+  #nav_boxs {
+    display: inline-block;
+    width: 100%;
+    max-width: $allwidth;
+    margin: 0 auto;
+    padding: 15px 0;
+    @include clearfix();
+    
+    border: 1px solid rgba(255, 0, 0, .3);
+
+    .logo_box {
+      display: inline-block;
+      width: 100px;
+      float: left;
+      margin-right: 220px;
+
+      a {
+        display: inline-block;
+        cursor: pointer;
+        outline: 0;
+        border: 0;
+
+        img {
+          width: 100%;
+        }
+      }    
+    }
+
+    nav {
+      display: inline-block;
+      width: calc(100% - 100px - 220px);
+      float: left;
+      @include clearfix();
+      
+      > div {
+        display: inline-block;
+        cursor: pointer;
+        width: calc(100% / 8);
+        float: left;
+        padding: 10px 0;
+
+        color: white;
+        font-size: 1em;
+        font-weight: 600;
+        text-transform: uppercase;
+        white-space: pre-wrap; 
+        @include transition(color .3s);
+        
+        &:hover, &:active, &.nav_ac {
+          color: $c_yellow;
+        }
+      }
+    }
+  }
+}
+
+
+
+#banner_boxs {
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+  .banner_cover {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(19, 15, 4, .5);
+  }
+
+  img {
+    display: inline-block;
+    width: 100vw;
+    height: auto;
+  }
+
+}
+
+
+
+#footer_boxs {
+  display: inline-block;
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
