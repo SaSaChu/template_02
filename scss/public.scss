@@ -63,7 +63,7 @@ $allwidth: 1170px;
 $c_yellow: rgba(232, 172, 16, 1.00);
 $c_greyblack: rgba(17, 17, 17, 1.00);
 $c_deepblack: rgba(0, 0, 0, 1.00); 
-
+$c_litegrey: rgba(80, 81, 82, 1.00); 
 
 #header_boxs {
   display: inline-block;
@@ -188,8 +188,6 @@ $c_deepblack: rgba(0, 0, 0, 1.00);
     padding: 15px 0;
     @include clearfix();
     
-    border: 1px solid rgba(255, 0, 0, .3);
-
     .logo_box {
       display: inline-block;
       width: 100px;
@@ -214,23 +212,41 @@ $c_deepblack: rgba(0, 0, 0, 1.00);
       float: left;
       @include clearfix();
       
-      > div {
+      > .nav_box {
         display: inline-block;
-        cursor: pointer;
         width: calc(100% / 8);
         float: left;
         padding: 10px 0;
 
-        color: white;
-        font-size: 1em;
-        font-weight: 600;
-        text-transform: uppercase;
-        white-space: pre-wrap; 
-        @include transition(color .3s);
-        
-        &:hover, &:active, &.nav_ac {
-          color: $c_yellow;
-        }
+        .nav_d {
+          display: inline-block;
+          cursor: pointer;
+          color: white;
+          font-size: 1em;
+          font-weight: 600;
+          text-transform: uppercase;
+          white-space: pre-wrap; 
+          @include transition(color .3s);
+
+          &.nav_ac {
+            color: $c_yellow;
+          }
+
+          div {
+            display: none;
+          }
+
+          &:hover, &:active {
+            color: $c_yellow;
+
+            div {
+              display: inline-block;
+              width: 100px;
+              padding: 10px 0;
+              background-color: white;
+            }
+          }
+        }        
       }
     }
   }
@@ -269,6 +285,79 @@ $c_deepblack: rgba(0, 0, 0, 1.00);
 #footer_boxs {
   display: inline-block;
   width: 100%;
+
+  .footer_top, .footer_down {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .footer_top {
+    background-color: $c_greyblack;
+    padding: 75px 0;
+
+    .ft_boxs {
+      display: inline-block;
+      max-width: $allwidth;
+      width: 100%;
+      margin: 0 auto;
+      text-align: left;
+      @include clearfix();
+
+      .ft_cent {
+        display: inline-block;
+        width: calc(100% / 4);
+        float: left;
+      }
+    }
+  }
+
+  .footer_down {
+    background-color: $c_deepblack;
+    padding: 10px 0;
+
+    .fd_boxs {
+      display: inline-block;
+      max-width: $allwidth;
+      width: 100%;
+      margin: 0 auto;
+      text-align: left;
+
+      @include split-left(800px, '.copyright', '.com');
+
+      .copyright {
+        color: $c_litegrey;
+        font-size: 1em;
+      }
+
+      .com {
+
+        > div {
+            display: inline-block;
+            padding: 0 15px;
+            float: right;
+
+          a {
+            display: inline-block;
+            cursor: pointer;
+            color: $c_litegrey;
+            text-decoration: none;
+            font-size: 1.2em;
+
+            &:hover, &:active {
+              color: $c_yellow;
+            }
+          }
+
+          &:first-child {
+            padding-right: 0;
+          }
+        }
+        
+      }
+    }
+    
+  }
+
 }
 
 
